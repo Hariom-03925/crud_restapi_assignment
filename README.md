@@ -9,7 +9,7 @@ This is a Spring Boot CRUD (Create, Read, Update, Delete) application with JWT (
 *   User Registration and Login
 *   JWT-based Authentication
 *   Product Management (CRUD operations)
-*   MySQL Database Integration
+*   H2 In-Memory Database Integration
 *   Global Exception Handling
 
 ## Prerequisites
@@ -18,7 +18,6 @@ Before you begin, ensure you have the following installed:
 
 *   **Java Development Kit (JDK) 17 or higher**
 *   **Apache Maven 3.8.x or higher**
-*   **MySQL Server 8.0 or higher**
 *   **Postman or cURL** for API testing
 
 ## Project Setup
@@ -29,15 +28,13 @@ Before you begin, ensure you have the following installed:
     cd crud_restapi_assignment
     ```
 
-2.  **Database Configuration (MySQL):**
-    *   Ensure your MySQL server is running.
-    *   The application will attempt to create the database named `crud` if it doesn't exist (due to `createDatabaseIfNotExist=true` in `application.properties`).
-    *   Update the database connection details in `src/main/resources/application.properties` if they differ from your setup:
-        ```properties
-        spring.datasource.url=jdbc:mysql://localhost:3307/crud?createDatabaseIfNotExist=true
-        spring.datasource.username=root
-        spring.datasource.password=hariom*123
-        ```
+2.  **Database Configuration (H2):**
+    *   The application uses H2 in-memory database, which is automatically configured.
+    *   H2 Console is enabled and can be accessed at: `http://localhost:8085/h2-console`
+    *   Use the following credentials to access H2 Console:
+        *   JDBC URL: `jdbc:h2:mem:cruddb`
+        *   Username: `sa`
+        *   Password: `password`
     *   `spring.jpa.hibernate.ddl-auto=update` is set to automatically create/update tables based on your JPA entities.
 
 3.  **Build the Project:**
